@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct wot_glossariesApp: App {
+struct WOTGlossariesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                BookListView()
+            }
         }
     }
 }
