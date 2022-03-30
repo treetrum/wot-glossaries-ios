@@ -10,7 +10,7 @@ import SwiftUI
 struct BookListView: View {
     var body: some View {
         List {
-            ForEach(MockData.shared.books, id: \.title) { book in
+            ForEach(MockData.books, id: \.title) { book in
                 NavigationLink {
                     GlossaryView(book: book)
                 } label: {

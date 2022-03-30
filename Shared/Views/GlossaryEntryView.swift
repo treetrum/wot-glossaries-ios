@@ -48,7 +48,7 @@ struct GlossaryEntryView: View {
 struct GlossaryEntryView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            GlossaryEntryView(entry: MockData.shared.books.first!.entries.first!)
+            GlossaryEntryView(entry: MockData.books.first!.entries.first!)
         }
     }
 }
