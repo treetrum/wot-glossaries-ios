@@ -21,6 +21,8 @@ class AppData: ObservableObject {
     @Published var isLoading: Bool = false
     
     let defaults = UserDefaults.standard
+    static let sessionConfig = URLSessionConfiguration.ephemeral
+    static let session = URLSession(configuration: sessionConfig)
     
     init() {
         // 1. Fetch from local cache (if exists)
@@ -28,11 +30,7 @@ class AppData: ObservableObject {
         
         Task {
             do {
-                
-                let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
-                
-                
-                
+
                 // 2. Then refresh local cache from server
                 print("Fetching manifest")
                 guard let url = URL(string: "https://raw.githubusercontent.com/treetrum/wot-glossaries-data/main/manifest.json") else {
@@ -43,7 +41,7 @@ class AppData: ObservableObject {
                     self.isLoading = true
                 }
 
-                let (data, _) = try await session.data(from: url)
+                let (data, _) = try await AppData.session.data(from: url)
                 
                 defaults.set(data, forKey: PersistenceKeys.Manifest.rawValue)
                 let parsed = try JSONDecoder().decode(Manifest.self, from: data)
@@ -53,7 +51,7 @@ class AppData: ObservableObject {
                     guard let url = URL(string: "https://raw.githubusercontent.com/treetrum/wot-glossaries-data/main/\(book.data)") else {
                         fatalError("Error creating URL")
                     }
-                    let (glossaryData, _) = try await session.data(from: url)
+                    let (glossaryData, _) = try await AppData.session.data(from: url)
                     defaults.set(glossaryData, forKey: book.data)
                 }
                 
