@@ -22,10 +22,8 @@ struct Book {
     let entries: [GlossaryEntry]
 }
 
-struct AppData {
-    static let shared = AppData()
-    
-    let entries: BookGlossary = decodeFromFileName("the-eye-of-the-world", decodable: BookGlossary.self)
+struct MockData {
+    static let shared = MockData()
     
     let books = [
         Book(title: "The Eye of the World", entries: decodeFromFileName("the-eye-of-the-world", decodable: BookGlossary.self)),

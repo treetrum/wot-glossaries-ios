@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BookGlossaryView: View {
+struct GlossaryView: View {
     
     @State var query: String = ""
     
@@ -40,7 +40,7 @@ struct BookGlossaryView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            BookGlossaryView(book: AppData.shared.books.first!)
+            GlossaryView(book: MockData.shared.books.first!)
         }
     }
 }

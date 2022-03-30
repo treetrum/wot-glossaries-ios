@@ -14,14 +14,14 @@
 		223DF61127F3170500CDA776 /* GlossaryEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C8F5F27F30A50008266C3 /* GlossaryEntryView.swift */; };
 		223DF61227F3170500CDA776 /* GlossaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C8F5B27F305E6008266C3 /* GlossaryEntry.swift */; };
 		223DF61327F3170500CDA776 /* WOTGlossariesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C8F3727F304F7008266C3 /* WOTGlossariesApp.swift */; };
-		223DF61427F3170500CDA776 /* BookGlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C8F3827F304F7008266C3 /* BookGlossaryView.swift */; };
+		223DF61427F3170500CDA776 /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C8F3827F304F7008266C3 /* GlossaryView.swift */; };
 		223DF61527F3170500CDA776 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C8F6927F312A1008266C3 /* BookListView.swift */; };
 		223DF61627F3170500CDA776 /* the-dragon-reborn.json in Resources */ = {isa = PBXBuildFile; fileRef = 220C8F6327F311F1008266C3 /* the-dragon-reborn.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		220C8F3727F304F7008266C3 /* WOTGlossariesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOTGlossariesApp.swift; sourceTree = "<group>"; };
-		220C8F3827F304F7008266C3 /* BookGlossaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGlossaryView.swift; sourceTree = "<group>"; };
+		220C8F3827F304F7008266C3 /* GlossaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryView.swift; sourceTree = "<group>"; };
 		220C8F3927F304F9008266C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		220C8F3E27F304F9008266C3 /* WoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		220C8F5B27F305E6008266C3 /* GlossaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryEntry.swift; sourceTree = "<group>"; };
@@ -55,13 +55,11 @@
 		220C8F3627F304F7008266C3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				220C8F5A27F305CF008266C3 /* model */,
-				220C8F5527F30586008266C3 /* data */,
+				220C8F5527F30586008266C3 /* Mocks */,
+				220C8F5A27F305CF008266C3 /* Model */,
+				226A8BB627F42A1200A4D086 /* Views */,
 				220C8F3927F304F9008266C3 /* Assets.xcassets */,
 				220C8F3727F304F7008266C3 /* WOTGlossariesApp.swift */,
-				220C8F3827F304F7008266C3 /* BookGlossaryView.swift */,
-				220C8F5F27F30A50008266C3 /* GlossaryEntryView.swift */,
-				220C8F6927F312A1008266C3 /* BookListView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -74,7 +72,33 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		220C8F5527F30586008266C3 /* data */ = {
+		220C8F5527F30586008266C3 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				226A8BB727F42A5500A4D086 /* Data */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		220C8F5A27F305CF008266C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				220C8F5B27F305E6008266C3 /* GlossaryEntry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		226A8BB627F42A1200A4D086 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				220C8F6927F312A1008266C3 /* BookListView.swift */,
+				220C8F3827F304F7008266C3 /* GlossaryView.swift */,
+				220C8F5F27F30A50008266C3 /* GlossaryEntryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		226A8BB727F42A5500A4D086 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				220C8F6327F311F1008266C3 /* the-dragon-reborn.json */,
@@ -82,15 +106,7 @@
 				220C8F6127F311F1008266C3 /* the-great-hunt.json */,
 				220C8F6227F311F1008266C3 /* the-shadow-rising.json */,
 			);
-			path = data;
-			sourceTree = "<group>";
-		};
-		220C8F5A27F305CF008266C3 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				220C8F5B27F305E6008266C3 /* GlossaryEntry.swift */,
-			);
-			path = model;
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +144,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 220C8F3527F304F7008266C3 /* Build configuration list for PBXProject "wot-glossaries" */;
+			buildConfigurationList = 220C8F3527F304F7008266C3 /* Build configuration list for PBXProject "WoT Glossaries" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -170,7 +186,7 @@
 				223DF61227F3170500CDA776 /* GlossaryEntry.swift in Sources */,
 				223DF61527F3170500CDA776 /* BookListView.swift in Sources */,
 				223DF61127F3170500CDA776 /* GlossaryEntryView.swift in Sources */,
-				223DF61427F3170500CDA776 /* BookGlossaryView.swift in Sources */,
+				223DF61427F3170500CDA776 /* GlossaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		220C8F3527F304F7008266C3 /* Build configuration list for PBXProject "wot-glossaries" */ = {
+		220C8F3527F304F7008266C3 /* Build configuration list for PBXProject "WoT Glossaries" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				220C8F4D27F304F9008266C3 /* Debug */,
