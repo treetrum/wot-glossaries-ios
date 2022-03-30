@@ -17,7 +17,16 @@ struct GlossaryEntry: Codable, Identifiable {
 
 typealias BookGlossary = [GlossaryEntry]
 
-struct Book {
+struct Book: Codable {
     let title: String
     let entries: [GlossaryEntry]
+}
+
+struct ManifestBook: Codable {
+    let name: String
+    let data: String
+}
+
+struct Manifest: Codable {
+    let books: [ManifestBook]
 }

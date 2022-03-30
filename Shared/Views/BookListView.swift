@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct BookListView: View {
+    
+    @ObservedObject var appData = AppData.shared
+    
     var body: some View {
-        List {
-            ForEach(MockData.books, id: \.title) { book in
-                NavigationLink {
-                    GlossaryView(book: book)
-                } label: {
-                    Text(book.title)
+        
+        VStack {
+            List {
+                
+                Section {
+                    ForEach(AppData.shared.books, id: \.title) { book in
+                        NavigationLink {
+                            GlossaryView(book: book)
+                        } label: {
+                            Text(book.title)
+                        }
+                    }
+                } footer: {
+                    Text("Last updated: \(appData.updatedDate?.formatted() ?? "Never")")
                 }
             }
         }
+        .listStyle(.insetGrouped)
         .navigationTitle("The Wheel of Time")
+        
+        
     }
 }
 

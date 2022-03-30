@@ -18,7 +18,8 @@
 		223DF61527F3170500CDA776 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C8F6927F312A1008266C3 /* BookListView.swift */; };
 		223DF61627F3170500CDA776 /* the-dragon-reborn.json in Resources */ = {isa = PBXBuildFile; fileRef = 220C8F6327F311F1008266C3 /* the-dragon-reborn.json */; };
 		226A8BB927F42B1900A4D086 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A8BB827F42B1900A4D086 /* MockData.swift */; };
-		226A8BBC27F42B4400A4D086 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A8BBB27F42B4400A4D086 /* Utils.swift */; };
+		226A8BBC27F42B4400A4D086 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A8BBB27F42B4400A4D086 /* ModelUtils.swift */; };
+		226A8BBE27F42C3800A4D086 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A8BBD27F42C3800A4D086 /* AppData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +35,8 @@
 		220C8F6427F311F1008266C3 /* the-eye-of-the-world.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "the-eye-of-the-world.json"; sourceTree = "<group>"; };
 		220C8F6927F312A1008266C3 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		226A8BB827F42B1900A4D086 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		226A8BBB27F42B4400A4D086 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		226A8BBB27F42B4400A4D086 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
+		226A8BBD27F42C3800A4D086 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +90,9 @@
 		220C8F5A27F305CF008266C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				226A8BBB27F42B4400A4D086 /* ModelUtils.swift */,
 				220C8F5B27F305E6008266C3 /* GlossaryEntry.swift */,
-				226A8BBB27F42B4400A4D086 /* Utils.swift */,
+				226A8BBD27F42C3800A4D086 /* AppData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +194,8 @@
 				223DF61327F3170500CDA776 /* WOTGlossariesApp.swift in Sources */,
 				223DF61227F3170500CDA776 /* GlossaryEntry.swift in Sources */,
 				223DF61527F3170500CDA776 /* BookListView.swift in Sources */,
-				226A8BBC27F42B4400A4D086 /* Utils.swift in Sources */,
+				226A8BBE27F42C3800A4D086 /* AppData.swift in Sources */,
+				226A8BBC27F42B4400A4D086 /* ModelUtils.swift in Sources */,
 				223DF61127F3170500CDA776 /* GlossaryEntryView.swift in Sources */,
 				223DF61427F3170500CDA776 /* GlossaryView.swift in Sources */,
 				226A8BB927F42B1900A4D086 /* MockData.swift in Sources */,

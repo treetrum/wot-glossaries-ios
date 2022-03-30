@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  ModelUtils.swift
 //  WoT Glossaries (iOS)
 //
 //  Created by Samuel Davis on 30/3/2022.
