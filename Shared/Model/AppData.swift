@@ -29,14 +29,21 @@ class AppData: ObservableObject {
         Task {
             do {
                 
-                self.isLoading = true
+                let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
+                
+                
                 
                 // 2. Then refresh local cache from server
                 print("Fetching manifest")
                 guard let url = URL(string: "https://raw.githubusercontent.com/treetrum/wot-glossaries-data/main/manifest.json") else {
                     fatalError("Error creating URL")
                 }
-                let (data, _) = try await URLSession.shared.data(from: url)
+
+                DispatchQueue.main.async {
+                    self.isLoading = true
+                }
+
+                let (data, _) = try await session.data(from: url)
                 
                 defaults.set(data, forKey: PersistenceKeys.Manifest.rawValue)
                 let parsed = try JSONDecoder().decode(Manifest.self, from: data)
@@ -46,16 +53,21 @@ class AppData: ObservableObject {
                     guard let url = URL(string: "https://raw.githubusercontent.com/treetrum/wot-glossaries-data/main/\(book.data)") else {
                         fatalError("Error creating URL")
                     }
-                    let (glossaryData, _) = try await URLSession.shared.data(from: url)
+                    let (glossaryData, _) = try await session.data(from: url)
                     defaults.set(glossaryData, forKey: book.data)
                 }
                 
-                self.isLoading = false
-                
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                }
+
+                print("Setting updated date")
                 defaults.set(Date.now, forKey: PersistenceKeys.UpdatedDate.rawValue)
                 
                 // 3. Update in memory with freshly fetched
-                self.loadFromDefaults()
+                DispatchQueue.main.async {
+                    self.loadFromDefaults()
+                }
                 
             } catch {
                 // TODO: Proper error handling

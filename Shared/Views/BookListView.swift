@@ -24,11 +24,12 @@ struct BookListView: View {
                         }
                     }
                 } footer: {
-                    Text("Last updated: \(appData.updatedDate?.formatted() ?? "Never")")
-                    if appData.isLoading {
-                        Text("Loading...")
+                    HStack(spacing: 8) {
+                        if appData.isLoading {
+                            ProgressView()
+                        }
+                        Text("Last updated: \(appData.updatedDate?.formatted() ?? "Never")")
                     }
-                    
                 }
             }
         }
