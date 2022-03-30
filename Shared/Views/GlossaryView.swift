@@ -27,12 +27,22 @@ struct GlossaryView: View {
                 NavigationLink {
                     GlossaryEntryView(entry: entry)
                 } label: {
-                    Text(entry.title ?? entry.titleRaw)
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(entry.title ?? entry.titleRaw)
+                        if let titlePhonetic = entry.titlePhonetic {
+                            Text(titlePhonetic)
+                                .font(.caption)
+                                .italic()
+                                .opacity(0.75)
+                        }
+                    }.padding([.top, .bottom], 2)
+                    
                 }
             }
         }
+        .listStyle(.insetGrouped)
         .navigationTitle(book.title)
-        .searchable(text: $query)
+        .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always))
         
     }
 }

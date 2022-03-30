@@ -15,7 +15,6 @@ struct BookListView: View {
         
         VStack {
             List {
-                
                 Section {
                     ForEach(AppData.shared.books, id: \.title) { book in
                         NavigationLink {
@@ -26,6 +25,10 @@ struct BookListView: View {
                     }
                 } footer: {
                     Text("Last updated: \(appData.updatedDate?.formatted() ?? "Never")")
+                    if appData.isLoading {
+                        Text("Loading...")
+                    }
+                    
                 }
             }
         }

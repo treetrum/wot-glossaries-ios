@@ -18,6 +18,7 @@ class AppData: ObservableObject {
     
     @Published var books: [Book] = [Book]()
     @Published var updatedDate: Date? = nil
+    @Published var isLoading: Bool = false
     
     let defaults = UserDefaults.standard
     
@@ -28,7 +29,10 @@ class AppData: ObservableObject {
         Task {
             do {
                 
+                self.isLoading = true
+                
                 // 2. Then refresh local cache from server
+                print("Fetching manifest")
                 guard let url = URL(string: "https://raw.githubusercontent.com/treetrum/wot-glossaries-data/main/manifest.json") else {
                     fatalError("Error creating URL")
                 }
@@ -38,12 +42,15 @@ class AppData: ObservableObject {
                 let parsed = try JSONDecoder().decode(Manifest.self, from: data)
                 
                 for book in parsed.books {
+                    print("Fetching book: \(book.name)")
                     guard let url = URL(string: "https://raw.githubusercontent.com/treetrum/wot-glossaries-data/main/\(book.data)") else {
                         fatalError("Error creating URL")
                     }
                     let (glossaryData, _) = try await URLSession.shared.data(from: url)
                     defaults.set(glossaryData, forKey: book.data)
                 }
+                
+                self.isLoading = false
                 
                 defaults.set(Date.now, forKey: PersistenceKeys.UpdatedDate.rawValue)
                 

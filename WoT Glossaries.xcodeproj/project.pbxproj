@@ -37,6 +37,7 @@
 		226A8BB827F42B1900A4D086 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		226A8BBB27F42B4400A4D086 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
 		226A8BBD27F42C3800A4D086 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		226A8BC127F43B6E00A4D086 /* WoT-Glossaries--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WoT-Glossaries--iOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +54,7 @@
 		220C8F3127F304F7008266C3 = {
 			isa = PBXGroup;
 			children = (
+				226A8BC127F43B6E00A4D086 /* WoT-Glossaries--iOS--Info.plist */,
 				220C8F3627F304F7008266C3 /* Shared */,
 				220C8F3F27F304F9008266C3 /* Products */,
 			);
@@ -328,6 +330,7 @@
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WoT-Glossaries--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -358,6 +361,7 @@
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WoT-Glossaries--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
