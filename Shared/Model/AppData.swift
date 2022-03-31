@@ -12,6 +12,19 @@ enum PersistenceKeys: String {
     case UpdatedDate
 }
 
+enum AppDataErrors: Error {
+    case URLCreationError
+}
+
+extension AppDataErrors: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .URLCreationError:
+            return "Error creating URL"
+        }
+    }
+}
+
 class AppData: ObservableObject {
     
     static let shared = AppData()
@@ -34,7 +47,7 @@ class AppData: ObservableObject {
                 // 2. Then refresh local cache from server
                 print("Fetching manifest")
                 guard let url = URL(string: "https://raw.githubusercontent.com/treetrum/wot-glossaries-data/main/manifest.json") else {
-                    fatalError("Error creating URL")
+                    throw AppDataErrors.URLCreationError
                 }
 
                 DispatchQueue.main.async {
@@ -49,7 +62,7 @@ class AppData: ObservableObject {
                 for book in parsed.books {
                     print("Fetching book: \(book.name)")
                     guard let url = URL(string: "https://raw.githubusercontent.com/treetrum/wot-glossaries-data/main/\(book.data)") else {
-                        fatalError("Error creating URL")
+                        throw AppDataErrors.URLCreationError
                     }
                     let (glossaryData, _) = try await AppData.session.data(from: url)
                     defaults.set(glossaryData, forKey: book.data)
@@ -68,10 +81,11 @@ class AppData: ObservableObject {
                 }
                 
             } catch {
-                // TODO: Proper error handling
-                fatalError("Error fetching up to date data")
+                DispatchQueue.main.async {
+                    print("Failed to fetch images: \(error.localizedDescription)")
+                    self.isLoading = false
+                }
             }
-            
         }
     }
     
